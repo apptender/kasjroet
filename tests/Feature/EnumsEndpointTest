@@ -1,0 +1,44 @@
+<?php
+
+namespace Tests\Feature;
+
+use App\Ingredient;
+use Exception;
+use Illuminate\Http\JsonResponse;
+use InvalidArgumentException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Tests\TestCase;
+
+
+class EnumsEndpointTest extends TestCase
+{
+
+    /** @test */
+    public function can_fetch_a_list_of_kosher_enums()
+    {
+        $response = $this->getJson('/api/enums/KosherTypes');
+        $response->assertStatus(200);
+
+        $expectedResult = [
+            'MILK' => 'melkkost',
+            'CHALAV' => 'chalav jisroel',
+            'MEAT' => 'vleeskost',
+            'PARVE' => 'parve',
+        ];
+        $this->assertEquals($expectedResult, $response->json());
+    }
+
+    /**
+     * @test
+     * @expectedException InvalidArgumentException
+     */
+    public function an_exception_will_be_thrown_if_unknown_enum_is_requested()
+    {
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->withoutExceptionHandling();
+        $this->get('/api/enums/nonexistingenum');
+
+    }
+
+}
