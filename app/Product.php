@@ -29,6 +29,7 @@ final class Product extends Model
                 $this->attributes['koshertype'] = (new KosherTypes(KosherTypes::MILK))->getValue();
                 break;
             case 'NK';
+            case '';
                 break;
             default:
                 throw new \InvalidArgumentException('Unknown Type Koshertype ' .  $value);
