@@ -51,13 +51,11 @@
     created() {
       axios.get(`${apiUrl}products`)
         .then(response => {
-          console.log(response);
           this.products = response.data
         })
     },
     computed: {
       productsFiltered() {
-        console.log('filtervalue');
         const filtered = [];
         const regOption = new RegExp(this.filterValue, 'ig');
         for (const product of this.products) {
