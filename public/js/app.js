@@ -2356,13 +2356,16 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get("".concat(apiUrl, "products")).then(function (response) {
-      console.log(response);
       _this.products = response.data;
     });
   },
   computed: {
     productsFiltered: function productsFiltered() {
-      console.log('filtervalue');
+      if (this.filterValue.length < 1) {
+        return [];
+      }
+
+      ;
       var filtered = [];
       var regOption = new RegExp(this.filterValue, 'ig');
       var _iteratorNormalCompletion = true;
@@ -2392,7 +2395,6 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
 
-      console.log('filtered', filtered);
       return filtered;
     }
   }

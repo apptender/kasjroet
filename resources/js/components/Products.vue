@@ -56,15 +56,16 @@
     },
     computed: {
       productsFiltered() {
+        if (this.filterValue.length < 1){
+          return [];
+        };
         const filtered = [];
         const regOption = new RegExp(this.filterValue, 'ig');
         for (const product of this.products) {
-
           if (this.filterValue.length < 1 || product.productname.match(regOption)) {
             filtered.push(product);
           }
         }
-        console.log('filtered', filtered);
         return filtered;
       }
     }
