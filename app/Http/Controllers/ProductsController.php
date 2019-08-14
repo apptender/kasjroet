@@ -6,12 +6,20 @@ use App\Brand;
 use App\Product;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 
 class ProductsController extends Controller
 {
     public function index(){
-        return response()->json(Product::with(['brand', 'categories'])->get());
+        if (Cache::has('products')){
+            return response()->json(Cache::get('products'));
+        } else {
+            $products = response()->json(Product::with(['brand', 'categories'])->get());
+            Cache::put('products', $products, 120);
+            return response()->json($products);
+        }
+
     }
 
     public function store(Request $request)
