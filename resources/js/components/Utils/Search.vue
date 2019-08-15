@@ -2,7 +2,7 @@
     <label for="search">
         <input
                 id="search"
-                class="w-full py-2 px-1"
+                class="w-full py-2 px-1 border-gray-900 border"
                 type="text"
                 name=":searchTitle"
                 v-model="searchFilter"

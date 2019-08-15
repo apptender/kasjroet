@@ -2365,7 +2365,6 @@ __webpack_require__.r(__webpack_exports__);
         return [];
       }
 
-      ;
       var filtered = [];
       var regOption = new RegExp(this.filterValue, 'ig');
       var _iteratorNormalCompletion = true;
@@ -5748,7 +5747,7 @@ var render = function() {
           expression: "searchFilter"
         }
       ],
-      staticClass: "w-full py-2 px-1",
+      staticClass: "w-full py-2 px-1 border-gray-900 border",
       attrs: {
         id: "search",
         type: "text",

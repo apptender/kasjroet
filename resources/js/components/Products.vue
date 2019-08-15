@@ -56,9 +56,9 @@
     },
     computed: {
       productsFiltered() {
-        if (this.filterValue.length < 1){
+        if (this.filterValue.length < 1) {
           return [];
-        };
+        }
         const filtered = [];
         const regOption = new RegExp(this.filterValue, 'ig');
         for (const product of this.products) {
