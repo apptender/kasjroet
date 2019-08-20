@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 
 final class Product extends Model
 {
-    protected $fillable = ['brand_id'];
-
     public function categories()
     {
         return $this->belongsToMany(Category::class)->withTimestamps();

@@ -91,7 +91,7 @@ final class NikCrawlerObserver extends CrawlObserver
             $product->koshertype = trim($data[2]);
             $product->eancode = trim($data['4']) === 'onbekend' ? null : trim($data[4]);
             $product->save();
-            $product->categories()->attach($category);
+//            $product->categories()->attach($category);
 
     }
 
