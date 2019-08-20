@@ -82,6 +82,7 @@ final class NikCrawlerObserver extends CrawlObserver
                 ['brand_id', '=', $brand->id]
             ])->firstOrFail();
         } catch (ModelNotFoundException $e) {
+            dd($brand);
             $product = new Product();
             $product->brand_id = $brand->id;
             $product->productName = ucfirst(trim($data[3]));
