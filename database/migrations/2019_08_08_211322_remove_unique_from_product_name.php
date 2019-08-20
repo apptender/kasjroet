@@ -14,7 +14,7 @@ class RemoveUniqueFromProductName extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropUnique(['productname','eancode']);
+//            $table->dropUnique(['productname','eancode']);
         });
     }
 
