@@ -5,20 +5,16 @@
                 class="w-full py-2 px-1 border-gray-900 border"
                 type="text"
                 name=":searchTitle"
-                v-model="searchFilter"
                 :placeholder="searchPlaceholder"
                 autocomplete="off"
-                v-on:keydown="filteredDataset"
+                @input="filteredDataset"
+                v-model="filterValue"
         />
     </label>
 </template>
-
 <script>
   export default {
     props: {
-      searchDataset: {
-        required: true
-      },
       searchPlaceholder: {
         type: String,
         required: false,
@@ -30,14 +26,16 @@
         default: 'search'
       }
     },
-    data() {
+    data(){
       return {
-        searchFilter: '',
+        filterValue: ''
       }
     },
     methods: {
-      filteredDataset() {
-        this.$emit('searchValue', this.searchFilter);
+      filteredDataset(searchFilter) {
+        console.log('filter', searchFilter);
+        // console.log('event fired');
+        this.$emit('input', this.filterValue);
       }
     },
     computed: {},

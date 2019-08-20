@@ -13,14 +13,13 @@
         </header-component>
         <div class="my-4">
             <search
-                    :search-dataset="productsFiltered"
                     search-placeholder=""
                     search-name=""
-                    v-on:searchValue="filterValue = $event"
+                    v-model="productsFiltered"
             >
 
             </search>
-            <div class="flex w-full py-1 border px-2 my-2" v-for="product in productsFiltered">
+            <div class="flex w-full py-1 border px-2 my-2" v-for="product in filteredProducts">
                 <div class="flex flex-col w-3/4">
                     <div class="flex-auto w-full text-sm">{{product.brand.brandname}}</div>
                     <div class="flex-auto w-full text-lg">{{product.productname}}</div>
@@ -41,32 +40,72 @@
 </template>
 
 <script>
+import {debounce} from 'lodash';
   export default {
     data() {
       return {
         products: [],
-        filterValue: ''
+        filterValue: '',
+        filteredProducts: ''
       }
     },
-    created() {
-      axios.get(`${apiUrl}products`)
-        .then(response => {
-          this.products = response.data
-        })
-    },
     computed: {
-      productsFiltered() {
-        if (this.filterValue.length < 1) {
-          return [];
-        }
-        const filtered = [];
-        const regOption = new RegExp(this.filterValue, 'ig');
-        for (const product of this.products) {
-          if (this.filterValue.length < 1 || product.productname.match(regOption)) {
-            filtered.push(product);
-          }
-        }
-        return filtered;
+      productsFiltered: {
+            get(){
+              console.log('getter called');
+                return this.filteredProducts;
+            },
+            set: _.debounce(function(event){
+              console.log('setter called');
+              if (this.filterValue.length < 1) {
+                this.filteredProducts = [];
+              }
+
+                console.log(`${apiUrl}search/` + event);
+              setTimeout(() => {
+                axios.get(`${apiUrl}search/` + event)
+                  .then(response => {
+                    console.log(response);
+                    this.products = response.data.products;
+                    const filtered = [];
+                    const regOption = new RegExp(this.filterValue, 'ig');
+                    for (const product of this.products) {
+                      if (this.filterValue.length < 1 || product.productname.match(regOption)) {
+                        filtered.push(product);
+                      }
+                    }
+                    this.filteredProducts = filtered;
+                  });
+
+              }, 200);
+
+
+
+            }, 500)
+        // if (this.filterValue.length < 1) {
+        //   return [];
+        // }
+        // console.log('computed');
+        // axios.get(`${apiUrl}search/` + this.filterValue)
+        //   .then(response => {
+        //     this.products = response.data.products;
+        //   });
+        //
+        // const filtered = [];
+        // const regOption = new RegExp(this.filterValue, 'ig');
+        // for (const product of this.products) {
+        //   if (this.filterValue.length < 1 || product.productname.match(regOption)) {
+        //     filtered.push(product);
+        //   }
+        // }
+        // return filtered;
+
+      }
+    },
+    methods: {
+      getProducts: function(){
+        console.log('computed1');
+
       }
     }
   }
