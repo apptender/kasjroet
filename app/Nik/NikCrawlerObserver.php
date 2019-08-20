@@ -82,15 +82,15 @@ final class NikCrawlerObserver extends CrawlObserver
                 ['brand_id', '=', $brand->id]
             ])->firstOrFail();
         } catch (ModelNotFoundException $e) {
-            dd($brand->id);
+
             $product = new Product();
             $product->brand_id = $brand->id;
             $product->productName = ucfirst(trim($data[3]));
             $product->informationsource = "NIK Website";
             $product->kosher = trim(strtoupper($data[2])) === 'NK' ? 0 : 1;
-            var_dump(strtoupper($data[3]));
             $product->koshertype = trim($data[2]);
             $product->eancode = trim($data['4']) === 'onbekend' ? null : trim($data[4]);
+            dd($product->brand_id);
             $product->save();
             $product->categories()->attach($category);
 
