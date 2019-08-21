@@ -1,23 +1,23 @@
 <template>
     <div>
-        <header-component>
-            <router-view></router-view>
-            <template slot="title">Producten</template>
-            <template slot="button">
-                <router-link :to="{name: 'new-product'}">
-                    <div class="rounded-full px-6 py-4 bg-blue-400 text-white hover:bg-blue-700 font-bold cursor-pointer text-sm">
-                        + Nieuw Product
-                    </div>
-                </router-link>
-            </template>
-        </header-component>
+<!--        <header-component>-->
+<!--            <router-view></router-view>-->
+<!--            <template slot="title">Producten</template>-->
+<!--            <template slot="button">-->
+<!--                <router-link :to="{name: 'new-product'}">-->
+<!--                    <div class="rounded-full px-6 py-4 bg-blue-400 text-white hover:bg-blue-700 font-bold cursor-pointer text-sm">-->
+<!--                        + Nieuw Product-->
+<!--                    </div>-->
+<!--                </router-link>-->
+<!--            </template>-->
+<!--   §     </header-component>-->
         <div class="my-4">
+            <h1 class="text-4xl font-bold text-gray-900 text-center tracking-widest">Is het Koosjer?</h1>
             <search
                     search-placeholder=""
                     search-name=""
                     v-model="productsFiltered"
             >
-
             </search>
             <div class="flex w-full py-1 border px-2 my-2" v-for="product in filteredProducts">
                 <div class="flex flex-col w-3/4">

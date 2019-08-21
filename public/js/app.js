@@ -2872,6 +2872,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     searchPlaceholder: {
@@ -22270,109 +22273,86 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "header-component",
-        [
-          _c("router-view"),
-          _vm._v(" "),
-          _c("template", { slot: "title" }, [_vm._v("Producten")]),
-          _vm._v(" "),
-          _c(
-            "template",
-            { slot: "button" },
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "my-4" },
+      [
+        _c(
+          "h1",
+          {
+            staticClass:
+              "text-4xl font-bold text-gray-900 text-center tracking-widest"
+          },
+          [_vm._v("Is het Koosjer?")]
+        ),
+        _vm._v(" "),
+        _c("search", {
+          attrs: { "search-placeholder": "", "search-name": "" },
+          model: {
+            value: _vm.productsFiltered,
+            callback: function($$v) {
+              _vm.productsFiltered = $$v
+            },
+            expression: "productsFiltered"
+          }
+        }),
+        _vm._v(" "),
+        _vm._l(_vm.filteredProducts, function(product) {
+          return _c(
+            "div",
+            { staticClass: "flex w-full py-1 border px-2 my-2" },
             [
-              _c("router-link", { attrs: { to: { name: "new-product" } } }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "rounded-full px-6 py-4 bg-blue-400 text-white hover:bg-blue-700 font-bold cursor-pointer text-sm"
-                  },
-                  [
-                    _vm._v(
-                      "\n                    + Nieuw Product\n                "
-                    )
-                  ]
-                )
-              ])
-            ],
-            1
-          )
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "my-4" },
-        [
-          _c("search", {
-            attrs: { "search-placeholder": "", "search-name": "" },
-            model: {
-              value: _vm.productsFiltered,
-              callback: function($$v) {
-                _vm.productsFiltered = $$v
-              },
-              expression: "productsFiltered"
-            }
-          }),
-          _vm._v(" "),
-          _vm._l(_vm.filteredProducts, function(product) {
-            return _c(
-              "div",
-              { staticClass: "flex w-full py-1 border px-2 my-2" },
-              [
-                _c("div", { staticClass: "flex flex-col w-3/4" }, [
-                  _c("div", { staticClass: "flex-auto w-full text-sm" }, [
-                    _vm._v(_vm._s(product.brand.brandname))
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "flex-auto w-full text-lg" }, [
-                    _vm._v(_vm._s(product.productname))
-                  ])
+              _c("div", { staticClass: "flex flex-col w-3/4" }, [
+                _c("div", { staticClass: "flex-auto w-full text-sm" }, [
+                  _vm._v(_vm._s(product.brand.brandname))
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "flex flex-col w-1/4" }, [
-                  product.kosher !== 1
-                    ? _c(
-                        "div",
-                        {
-                          staticClass:
-                            "block bg-red-500 text-center text-white font-bold w-20 text-2xl self-end px-2"
-                        },
-                        [_vm._v("\n                    NEE\n                ")]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  product.kosher === 1
-                    ? _c(
-                        "div",
-                        {
-                          staticClass:
-                            "block bg-green-500 text-center text-white font-bold uppercase text-2xl self-end px-2"
-                        },
-                        [
-                          _vm._v(
-                            "\n                    " +
-                              _vm._s(product.koshertype) +
-                              "\n                "
-                          )
-                        ]
-                      )
-                    : _vm._e()
+                _c("div", { staticClass: "flex-auto w-full text-lg" }, [
+                  _vm._v(_vm._s(product.productname))
                 ])
-              ]
-            )
-          })
-        ],
-        2
-      )
-    ],
-    1
-  )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex flex-col w-1/4" }, [
+                product.kosher !== 1
+                  ? _c(
+                      "div",
+                      {
+                        staticClass:
+                          "block bg-red-500 text-center text-white font-bold w-20 text-2xl self-end px-2"
+                      },
+                      [
+                        _vm._v(
+                          "\n                        NEE\n                    "
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                product.kosher === 1
+                  ? _c(
+                      "div",
+                      {
+                        staticClass:
+                          "block bg-green-500 text-center text-white font-bold uppercase text-2xl self-end px-2"
+                      },
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(product.koshertype) +
+                            "\n                    "
+                        )
+                      ]
+                    )
+                  : _vm._e()
+              ])
+            ]
+          )
+        })
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -22879,37 +22859,39 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("label", { attrs: { for: "search" } }, [
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.filterValue,
-          expression: "filterValue"
+  return _c("div", { staticClass: "container mx-auto" }, [
+    _c("label", { attrs: { for: "search" } }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.filterValue,
+            expression: "filterValue"
+          }
+        ],
+        staticClass: "w-full py-2 border-gray-900 border",
+        attrs: {
+          id: "search",
+          type: "text",
+          name: ":searchTitle",
+          placeholder: _vm.searchPlaceholder,
+          autocomplete: "off"
+        },
+        domProps: { value: _vm.filterValue },
+        on: {
+          input: [
+            function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.filterValue = $event.target.value
+            },
+            _vm.filteredDataset
+          ]
         }
-      ],
-      staticClass: "w-full py-2 px-1 border-gray-900 border",
-      attrs: {
-        id: "search",
-        type: "text",
-        name: ":searchTitle",
-        placeholder: _vm.searchPlaceholder,
-        autocomplete: "off"
-      },
-      domProps: { value: _vm.filterValue },
-      on: {
-        input: [
-          function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.filterValue = $event.target.value
-          },
-          _vm.filteredDataset
-        ]
-      }
-    })
+      })
+    ])
   ])
 }
 var staticRenderFns = []

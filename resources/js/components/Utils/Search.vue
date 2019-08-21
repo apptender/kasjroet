@@ -1,16 +1,19 @@
 <template>
-    <label for="search">
-        <input
-                id="search"
-                class="w-full py-2 px-1 border-gray-900 border"
-                type="text"
-                name=":searchTitle"
-                :placeholder="searchPlaceholder"
-                autocomplete="off"
-                @input="filteredDataset"
-                v-model="filterValue"
-        />
-    </label>
+    <div class="container mx-auto">
+        <label for="search">
+            <input
+                    id="search"
+                    class="w-full py-2 border-gray-900 border"
+                    type="text"
+                    name=":searchTitle"
+                    :placeholder="searchPlaceholder"
+                    autocomplete="off"
+                    @input="filteredDataset"
+                    v-model="filterValue"
+            />
+        </label>
+    </div>
+
 </template>
 <script>
   export default {
