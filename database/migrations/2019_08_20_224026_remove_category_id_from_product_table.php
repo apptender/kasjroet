@@ -13,8 +13,8 @@ class RemoveCategoryIdFromProductTable extends Migration
      */
     public function up()
     {
-        if (Schema::hasColumn('product', 'category_id')){
-            Schema::table('product', function (Blueprint $table) {
+        if (Schema::hasColumn('products', 'category_id')){
+            Schema::table('products', function (Blueprint $table) {
                 $table->dropColumn('category_id');
             });
         }
@@ -28,7 +28,7 @@ class RemoveCategoryIdFromProductTable extends Migration
      */
     public function down()
     {
-        Schema::table('product', function (Blueprint $table) {
+        Schema::table('products', function (Blueprint $table) {
             //
         });
     }
