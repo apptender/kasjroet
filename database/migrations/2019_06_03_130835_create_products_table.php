@@ -25,8 +25,6 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('brand_id')->unsigned()->index();
-            $table->string('productname')->unique();
-            $table->bigInteger('category_id')->unsigned()->index();
             $table->string('informationsource')->nullable();
             $table->string('eancode')->unique();
             $table->boolean('kosher')->default(0);
