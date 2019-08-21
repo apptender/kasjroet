@@ -27,7 +27,7 @@ class CreateProductsTable extends Migration
             $table->bigInteger('brand_id')->unsigned()->index();
             $table->string('productname');
             $table->string('informationsource')->nullable();
-            $table->string('eancode')->unique();
+            $table->string('eancode');
             $table->boolean('kosher')->default(0);
             $table->string('koshertype')->nullable();
 
