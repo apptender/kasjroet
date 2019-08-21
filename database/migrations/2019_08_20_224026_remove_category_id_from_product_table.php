@@ -15,6 +15,7 @@ class RemoveCategoryIdFromProductTable extends Migration
     {
         if (Schema::hasColumn('products', 'category_id')){
             Schema::table('products', function (Blueprint $table) {
+                $table->dropForeign('category_id');
                 $table->dropColumn('category_id');
             });
         }
