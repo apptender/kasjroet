@@ -52,20 +52,15 @@ import {debounce} from 'lodash';
     computed: {
       productsFiltered: {
             get(){
-              console.log('getter called');
                 return this.filteredProducts;
             },
             set: _.debounce(function(event){
-              console.log('setter called');
               if (this.filterValue.length < 1) {
                 this.filteredProducts = [];
               }
-
-                console.log(`${apiUrl}search/` + event);
               setTimeout(() => {
                 axios.get(`${apiUrl}search/` + event)
                   .then(response => {
-                    console.log(response);
                     this.products = response.data.products;
                     const filtered = [];
                     const regOption = new RegExp(this.filterValue, 'ig');
@@ -78,36 +73,9 @@ import {debounce} from 'lodash';
                   });
 
               }, 200);
-
-
-
             }, 500)
-        // if (this.filterValue.length < 1) {
-        //   return [];
-        // }
-        // console.log('computed');
-        // axios.get(`${apiUrl}search/` + this.filterValue)
-        //   .then(response => {
-        //     this.products = response.data.products;
-        //   });
-        //
-        // const filtered = [];
-        // const regOption = new RegExp(this.filterValue, 'ig');
-        // for (const product of this.products) {
-        //   if (this.filterValue.length < 1 || product.productname.match(regOption)) {
-        //     filtered.push(product);
-        //   }
-        // }
-        // return filtered;
-
       }
     },
-    methods: {
-      getProducts: function(){
-        console.log('computed1');
-
-      }
-    }
   }
 
 </script>

@@ -10,7 +10,7 @@ window.apiUrl = 'https://ishetkoosjer.nl/api/';
 if (process.env.NODE_ENV == 'development') {
   window.apiUrl = 'http://kasjroet.test/api/';
 }
-
+console.log(process.env.NODE_ENV);
 Vue.use(VueRouter);
 
 Vue.component('header-component', require('./components/HeaderComponent').default);

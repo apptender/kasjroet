@@ -36,8 +36,6 @@
     },
     methods: {
       filteredDataset(searchFilter) {
-        console.log('filter', searchFilter);
-        // console.log('event fired');
         this.$emit('input', this.filterValue);
       }
     },
