@@ -34,7 +34,6 @@ class CreateProductsTable extends Migration
             $table->timestamps();
 
             $table->foreign('brand_id')->references('id')->on('brands');
-            $table->foreign('category_id')->references('id')->on('categories');
         });
 
         Schema::create('products_ingredients', function(Blueprint $table){
