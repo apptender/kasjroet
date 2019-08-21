@@ -6,7 +6,11 @@ import {debounce} from 'lodash';
 
 window.axios = axios;
 window.axios.defaults.headers.common['X-Requested_width'] = 'XMLHttpRequest';
-window.apiUrl = 'http://kasjroet.test/api/';
+window.apiUrl = 'https://ishetkoosjer.nl/api/';
+if (process.env.NODE_ENV == 'development') {
+  window.apiUrl = 'http://kasjroet.test/api/';
+}
+
 Vue.use(VueRouter);
 
 Vue.component('header-component', require('./components/HeaderComponent').default);
