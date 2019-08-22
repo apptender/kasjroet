@@ -30,56 +30,56 @@ export default {
       name: 'products'
 
     },
-    {
-      path: '/products/new',
-      component: ProductForm,
-      name: 'new-product'
-
-    },
-    {
-      path: '/ingredients',
-      component: Ingredients,
-      name: 'ingredients',
-    },
-    {
-      path: '/ingredients/new',
-      component: Form,
-      name: 'new-ingredient'
-    },
-    {
-      path: '/ingredients/:id/edit',
-      component: Form,
-      name: 'edit-ingredient'
-    },
-    {
-      path: '/categories',
-      component: Categories,
-      name: 'categories'
-    },
-    {
-      path: '/categories/new',
-      name: 'newCategory',
-      component: CategoriesForm
-    },
-    {
-      path: '/categories/:id/edit',
-      component: CategoriesForm,
-      name: 'edit-category'
-    },
-    {
-      path:'/brands',
-      name: 'brands',
-      component: Brands
-    },
-    {
-      path:'/brands/new',
-      name: 'newBrand',
-      component: BrandsForm
-    },
-    {
-      path: '/brands/:id/edit',
-      name: 'editBrand',
-      component: BrandsForm
-    }
+    // {
+    //   path: '/products/new',
+    //   component: ProductForm,
+    //   name: 'new-product'
+    //
+    // },
+    // {
+    //   path: '/ingredients',
+    //   component: Ingredients,
+    //   name: 'ingredients',
+    // },
+    // {
+    //   path: '/ingredients/new',
+    //   component: Form,
+    //   name: 'new-ingredient'
+    // },
+    // {
+    //   path: '/ingredients/:id/edit',
+    //   component: Form,
+    //   name: 'edit-ingredient'
+    // },
+    // {
+    //   path: '/categories',
+    //   component: Categories,
+    //   name: 'categories'
+    // },
+    // {
+    //   path: '/categories/new',
+    //   name: 'newCategory',
+    //   component: CategoriesForm
+    // },
+    // {
+    //   path: '/categories/:id/edit',
+    //   component: CategoriesForm,
+    //   name: 'edit-category'
+    // },
+    // {
+    //   path:'/brands',
+    //   name: 'brands',
+    //   component: Brands
+    // },
+    // {
+    //   path:'/brands/new',
+    //   name: 'newBrand',
+    //   component: BrandsForm
+    // },
+    // {
+    //   path: '/brands/:id/edit',
+    //   name: 'editBrand',
+    //   component: BrandsForm
+    // }
   ]
 }
