@@ -12,7 +12,7 @@
 <!--            </template>-->
 <!--   §     </header-component>-->
         <div class="my-4">
-            <h1 class="text-4xl font-bold text-gray-900 text-center tracking-widest">Is het Koosjer?</h1>
+            <h1 class="text-4xl font-bold text-gray-900 text-center tracking-widest uppercase">Is het Koosjer?</h1>
             <search
                     search-placeholder=""
                     search-name=""
