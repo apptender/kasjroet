@@ -12,6 +12,11 @@
         </script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Een database met koosjere producten in Nederland">
+        <meta name="keywords" content="koosjer, is het koosjer, ishetkoosjer, kosher, is het kosher">
+        <meta property="og:title" content="Is het Koosjer">
+        <meta property="og:description" content="Een database met koosjere producten in Nederland">
+        <meta property="og:type" content="website">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Is het Koosjer?</title>
         <link rel="stylesheet" href="/css/app.css">
