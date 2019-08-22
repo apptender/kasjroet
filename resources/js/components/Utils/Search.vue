@@ -3,7 +3,7 @@
         <label for="search">
             <input
                     id="search"
-                    class="w-full py-2 border-gray-900 border"
+                    class="w-full p-2 border-gray-900 border font-bold"
                     type="text"
                     name=":searchTitle"
                     :placeholder="searchPlaceholder"

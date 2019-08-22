@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container mx-auto">
 <!--        <header-component>-->
 <!--            <router-view></router-view>-->
 <!--            <template slot="title">Producten</template>-->

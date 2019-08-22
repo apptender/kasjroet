@@ -22,7 +22,7 @@ export default {
     },
     {
       path: '/',
-      component: Home
+      component: Products
     },
     {
       path: '/products',
