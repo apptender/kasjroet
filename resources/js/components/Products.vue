@@ -11,15 +11,15 @@
             <div class="flex w-full py-1 border px-2 my-2" v-for="product in filteredProducts">
                 <div class="flex flex-col w-3/4">
                     <div class="flex-auto w-full text-sm">{{product.brandname}}</div>
-                    <div class="flex-auto w-full text-lg">{{product.productname}}</div>
+                    <div class="flex-auto w-full md:text-lg xs:text-sm">{{product.productname}}</div>
                 </div>
                 <div class="flex flex-col w-1/4">
                     <div v-if="product.kosher !== 1"
-                         class="block bg-red-500 text-center text-white font-bold w-20 text-2xl self-end px-2">
+                         class="block bg-red-500 text-center text-white font-bold w-20 md:text-2xl xs:text-lg self-end px-1">
                         NEE
                     </div>
                     <div v-if="product.kosher === 1"
-                         class="block bg-green-500 text-center text-white font-bold uppercase text-2xl self-end px-2">
+                         class="block bg-green-500 text-center text-white font-bold uppercase md:text-2xl xs:text-lg self-end px-1">
                         {{product.koshertype}}
                     </div>
                 </div>
