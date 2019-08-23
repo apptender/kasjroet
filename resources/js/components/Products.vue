@@ -10,7 +10,7 @@
             </search>
             <div class="flex w-full py-1 border px-2 my-2" v-for="product in filteredProducts">
                 <div class="flex flex-col w-3/4">
-                    <div class="flex-auto w-full text-sm">{{product.brand.brandname}}</div>
+                    <div class="flex-auto w-full text-sm">{{product.brandname}}</div>
                     <div class="flex-auto w-full text-lg">{{product.productname}}</div>
                 </div>
                 <div class="flex flex-col w-1/4">
