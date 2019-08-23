@@ -3,7 +3,7 @@
         <div class="my-4">
             <h1 class="text-4xl font-bold text-gray-900 text-center tracking-widest uppercase">Is het Koosjer?</h1>
             <search
-                    search-placeholder=""
+                    search-placeholder="zoek een product of merk"
                     search-name=""
                     v-model="productsFiltered"
             >
