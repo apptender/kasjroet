@@ -43,4 +43,7 @@ Route::get('/products', 'ProductsController@index');
 Route::post('/ingredients-collection', 'IngredientsCollectionController@store');
 Route::get('/enums/{enum}', 'EnumsController@show');
 
-Route::get('/search/{search}', 'SearchController@show')->middleware('log.search.request');
+Route::group(['middleware' => ['ipcheck','log.search.request']], function(){
+    Route::get('/search/{search}', 'SearchController@show');
+});
+

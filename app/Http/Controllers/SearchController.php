@@ -10,8 +10,6 @@ class SearchController extends Controller
     public function show(string $query)
     {
         //@todo save searchquery with ip address and other request data (maybe in middleware)
-
-//        $products = Product::with(['brand', 'categories'])->where('productname', 'like','%'.$query .'%')->get();
         $brand = Brand::where('brandname', '=', $query)->first();
         if ($brand) {
             $products = DB::table('products')
