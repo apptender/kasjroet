@@ -8,6 +8,9 @@
                     v-model="productsFiltered"
             >
             </search>
+            <div class="flex w-full py-1 border px-2 py-4 my-2" v-if="notFound">
+                <p class="text-center">We konden helaas niks vinden. Probeer iets anders.</p>
+            </div>
             <div class="flex w-full py-1 border px-2 my-2" v-for="product in filteredProducts">
                 <div class="flex flex-col w-3/4">
                     <div class="flex-auto w-full text-sm">{{product.brandname}}</div>
@@ -29,13 +32,14 @@
 </template>
 
 <script>
-import {debounce} from 'lodash';
+import {debounce, isEmpty} from 'lodash';
   export default {
     data() {
       return {
         products: [],
         filterValue: '',
-        filteredProducts: ''
+        filteredProducts: '',
+        notFound: false
       }
     },
     computed: {
@@ -48,9 +52,13 @@ import {debounce} from 'lodash';
                 this.filteredProducts = [];
               }
               setTimeout(() => {
+                this.notFound = false;
                 axios.get(`${apiUrl}search/` + event)
                   .then(response => {
                     this.products = response.data.products;
+                    if (Array.isArray(this.products) && _.isEmpty(this.products)) {
+                        this.notFound = true;
+                    }
                     const filtered = [];
                     const regOption = new RegExp(this.filterValue, 'ig');
                     for (const product of this.products) {
