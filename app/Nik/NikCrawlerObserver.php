@@ -85,7 +85,8 @@ final class NikCrawlerObserver extends CrawlObserver
 
             $product = new Product();
             $product->brand_id = $brand->id;
-            $product->productName = ucfirst(trim($data[3]));
+            var_dump(ucfirst(trim($data[3])));
+            $product->productName = htmlspecialchars_decode(ucfirst(trim($data[3])));
             $product->informationsource = "NIK Website";
             $product->kosher = trim(strtoupper($data[2])) === 'NK' ? 0 : 1;
             $product->koshertype = trim($data[2]);
