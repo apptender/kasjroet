@@ -32,10 +32,15 @@ final class NikCrawlerObserver extends CrawlObserver
     public function crawled(UriInterface $url, ResponseInterface $response, ?UriInterface $foundOnUrl = null)
     {
         $result = (string)$response->getBody();
-
-        $pattern = '/<tbody>(.*?)<\/tbody>/s';
         $cleanedResult = preg_replace("/\s+/", " ", $result);
-        preg_match_all($pattern, trim($cleanedResult), $lines);
+
+        $pattern = '/<table .*? class="wp-table-reloaded .*?">(.*?)<\/table>/si';
+        preg_match_all($pattern, trim($cleanedResult), $tables);
+        if (!is_array($tables[1]) || !isset($tables[1][0])){
+            return;
+        }
+        $pattern = '/<tbody>(.*?)<\/tbody>/s';
+        preg_match_all($pattern, trim($tables[1][0]), $lines);
         if (!is_array($lines[1]) || !isset($lines[1][0])){
             return;
         }
@@ -60,7 +65,7 @@ final class NikCrawlerObserver extends CrawlObserver
     public function crawlFailed(UriInterface $url, RequestException $requestException, ?UriInterface $foundOnUrl = null)
     {
 
-        dd('Ezriel is niet aardig',$url, $requestException,$foundOnUrl);
+        dd('crawl failed',$url, $requestException,$foundOnUrl);
     }
 
     public function finishedCrawling()
@@ -85,7 +90,6 @@ final class NikCrawlerObserver extends CrawlObserver
 
             $product = new Product();
             $product->brand_id = $brand->id;
-            var_dump(ucfirst(trim($data[3])));
             $product->productName = htmlspecialchars_decode(ucfirst(trim($data[3])));
             $product->informationsource = "NIK Website";
             $product->kosher = trim(strtoupper($data[2])) === 'NK' ? 0 : 1;
