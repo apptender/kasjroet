@@ -1,0 +1,15 @@
+{
+    "name": "Is het Koosjer",
+    "short_name": "Koosjer",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "Is het koosjer app",
+    "icons": [
+        {
+            "src": "images/icon-192.png",
+            "sizes": "192X192",
+            "type": "image/png"
+        }
+    ]
+}
