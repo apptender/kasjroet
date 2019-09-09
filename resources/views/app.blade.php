@@ -21,7 +21,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Is het Koosjer?</title>
     <link rel="stylesheet" href="/css/app.css">
-    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
