@@ -21,7 +21,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Is het Koosjer?</title>
     <link rel="stylesheet" href="/css/app.css">
-    <link rel="manifest" href="manifest.json">
+    @laravelPWA
 </head>
 
 <body>
@@ -49,6 +49,11 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.prompt();
+      });
+    </script>
     <script src="/js/app.js"></script>
 </body>
 
