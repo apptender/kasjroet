@@ -68,6 +68,31 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        let deferredPrompt = e;
+
+        document.getElementById('install-now').addEventListener('click', () => {
+          document.getElementById('install').classList.add('hidden');
+
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then((choiceResult) => {
+            deferredPrompt = null;
+          })
+        });
+
+        document.getElementById('dismiss').addEventListener('click', () => {
+          document.getElementById('install').classList.add('hidden');
+        });
+
+        showInstall();
+      });
+
+      function showInstall() {
+        document.getElementById('install').classList.remove('hidden');
+      }
+    </script>
     <script src="/js/app.js"></script>
 </body>
 
