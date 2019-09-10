@@ -27,6 +27,25 @@
 <body>
     <div id="app" class="antialiased text-gray-900">
         <div>
+            <div class="hidden" id="install">
+                <div class="bg-indigo-900 text-center px-4 py-4">
+                    <div class="p-2 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
+                         role="alert">
+                        <p class="font-bold">Download onze app!</p>
+                        <p class="font-semibold mr-2 text-left flex-auto text-sm ml-1">
+                            Het neemt
+                            <underline>geen</underline>
+                            ruimte in op uw apparaat!
+                        </p>
+                        <p class="text-indigo-300 underline cursor-pointer hover:text-indigo-200" id="dismiss">Niet
+                            nu</p>
+                        <button class="flex py-2 px-4 rounded-full bg-indigo-500 font-bold ml-3 hover:bg-indigo-400 cursor-pointer"
+                                id="install-now">
+                            Installeer
+                        </button>
+                    </div>
+                </div>
+            </div>
             <div class="flex">
                 {{--                  <aside class="w-1/4 bg-gray-800 pt-8 min-h-screen">--}}
                 {{--                      <header class="p-6 mb-8">--}}
@@ -51,8 +70,28 @@
     </div>
     <script type="text/javascript">
       window.addEventListener('beforeinstallprompt', (e) => {
-        e.prompt();
+        e.preventDefault();
+        let deferredPrompt = e;
+
+        document.getElementById('install-now').addEventListener('click', () => {
+          document.getElementById('install').classList.add('hidden');
+
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then((choiceResult) => {
+            deferredPrompt = null;
+          })
+        });
+
+        document.getElementById('dismiss').addEventListener('click', () => {
+          document.getElementById('install').classList.add('hidden');
+        });
+
+        showInstall();
       });
+
+      function showInstall() {
+        document.getElementById('install').classList.remove('hidden');
+      }
     </script>
     <script src="/js/app.js"></script>
 </body>
