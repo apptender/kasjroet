@@ -23,3 +23,5 @@ yarn-error.log
 .idea/codeStyles/codeStyleConfig.xml
 .idea/codeStyles/Project.xml
 .idea/inspectionProfiles/Project_Default.xml
+/public/js
+/public/css
