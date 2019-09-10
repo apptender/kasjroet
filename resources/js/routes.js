@@ -17,10 +17,6 @@ export default {
 
   routes: [
     {
-      path: '*',
-      component: NotFound
-    },
-    {
       path: '/be16f422-d3c8-11e9-bb65-2a2ae2dbcce4',
       component: Products
     },
@@ -33,6 +29,10 @@ export default {
       component: Products,
       name: 'products'
 
+    },
+    {
+      path: '*',
+      component: NotFound
     },
     // {
     //   path: '/products/new',

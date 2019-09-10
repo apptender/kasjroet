@@ -16,15 +16,10 @@ Route::get('/be16f422-d3c8-11e9-bb65-2a2ae2dbcce4', function () {
 })->where('any', '.*');
 
 
-Route::get('/{any}', function () {
+Route::get('/', function () {
     return view('app');
-})->where('any', '.*');
+});
 
-
-
-Route::get('/{any}', function () {
-    return view('app');
-})->where('any', '.*');
 
 
 Route::resources([
