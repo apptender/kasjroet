@@ -12,7 +12,6 @@ if (process.env.NODE_ENV == 'development') {
   window.apiUrl = 'http://kasjroet.test/api/';
 }
 Vue.use(VueRouter);
-
 Vue.component('header-component', require('./components/HeaderComponent').default);
 Vue.component('message', require('./components/Utils/Message').default);
 Vue.component('panel', require('./components/Utils/Panel').default);

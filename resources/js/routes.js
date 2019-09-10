@@ -21,6 +21,10 @@ export default {
       component: NotFound
     },
     {
+      path: '/be16f422-d3c8-11e9-bb65-2a2ae2dbcce4',
+      component: Products
+    },
+    {
       path: '/',
       component: Products
     },

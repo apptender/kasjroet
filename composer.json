@@ -15,6 +15,7 @@
         "laravel/tinker": "^1.0",
         "myclabs/php-enum": "^1.7",
         "predis/predis": "^1.1",
+        "silviolleite/laravelpwa": "^1.0",
         "spatie/crawler": "^4.5"
     },
     "require-dev": {
