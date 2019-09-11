@@ -27,22 +27,34 @@
 <body>
     <div id="app" class="antialiased text-gray-900">
         <div>
+            <div id="apple-install">
+                <div class="bg-white flex items-center justify-center">
+                    <div>
+                        <p class="text-2xl text-gray-800 font-bold text-center">Install Is het Koosjer</p>
+                        <p class="text-center">Installeer deze applicatie op je homescreen. Hiermee heb je makkelijk toegang tot de meest actuele kasjroetlijst</p>
+                    </div>
+
+                </div>
+                <div class="bg-gray-200">
+                    <p class="text-center">Druk op het share Icoon en druk dan op: Toevoegen aan homescreen</p>
+                </div>
+            </div>
             <div class="hidden" id="install">
-                <div class="bg-indigo-900 text-center px-4 py-4">
-                    <div class="p-2 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
+                <div class="bg-indigo-900 sm:text-center px-4 py-4">
+                    <div class="p-2 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex lg:flex-row flex-col"
                          role="alert">
-                        <p class="font-bold">Download onze app!</p>
-                        <p class="font-semibold mr-2 text-left flex-auto text-sm ml-1">
+                        <p class="font-bold block leading-relaxed">Download onze app!</p>
+                        <p class="font-semibold mr-2 text-left flex-auto text-sm ml-1 block leading-relaxed">
                             Het neemt
                             <underline>geen</underline>
-                            ruimte in op uw apparaat!
+                            ruimte in op uw apparaat<!doctype html>
                         </p>
-                        <p class="text-indigo-300 underline cursor-pointer hover:text-indigo-200" id="dismiss">Niet
-                            nu</p>
-                        <button class="flex py-2 px-4 rounded-full bg-indigo-500 font-bold ml-3 hover:bg-indigo-400 cursor-pointer"
+                        <button class="flex py-2 my-1 px-4 rounded-full bg-indigo-500 font-bold ml-3 hover:bg-indigo-400 cursor-pointer"
                                 id="install-now">
                             Installeer
                         </button>
+                        <p class="text-indigo-300 underline cursor-pointer hover:text-indigo-200 block leading-relaxed sm:ml-4" id="dismiss">Niet
+                            nu</p>
                     </div>
                 </div>
             </div>
@@ -72,6 +84,11 @@
       window.addEventListener('beforeinstallprompt', (e) => {
         e.preventDefault();
         let deferredPrompt = e;
+
+        if (['iPhone', 'iPad', 'iPod' ].includes(navigator.platform) === true && !navigator.standalone) {
+          document.getElementById('install').classList.add('hidden');
+        }
+
 
         document.getElementById('install-now').addEventListener('click', () => {
           document.getElementById('install').classList.add('hidden');
