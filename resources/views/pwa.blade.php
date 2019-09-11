@@ -27,7 +27,7 @@
 <body>
     <div id="app" class="antialiased text-gray-900">
         <div>
-            <div id="apple-install">
+            <div class="hidden" id="apple-install">
                 <div class="bg-white flex items-center justify-center">
                     <div>
                         <p class="text-2xl text-gray-800 font-bold text-center">Install Is het Koosjer</p>
@@ -87,6 +87,9 @@
 
         if (['iPhone', 'iPad', 'iPod' ].includes(navigator.platform) === true && !navigator.standalone) {
           document.getElementById('install').classList.add('hidden');
+          document.getElementById('apple-install').classList.remove('hidden');
+        } else {
+          document.getElementById('apple-install').classList.add('hidden');
         }
 
 
