@@ -52,8 +52,6 @@ class CrawlNik extends Command
         'https://www.nik.nl/2018/08/vlees-gevogelte-en-vleesvervangers/',
         'https://www.nik.nl/2018/08/vruchtenconserven/',
         'https://www.nik.nl/2018/08/aardappelproducten-2/',
-        'https://www.nik.nl/2019/09/meer-exotische-producten-op-de-kasjroetlijst/',
-
     ];
 
     /**
